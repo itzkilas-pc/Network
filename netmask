@@ -1,0 +1,45 @@
+A netmask is a 32-bit number (for IPv4) used in networking to divide an IP address into its network and host portions. It helps determine which part of the IP address refers to the network and which part refers to individual devices (hosts) within that network. Here's a detailed explanation:
+
+1. Structure of an IP Address
+An IPv4 address is a 32-bit number typically written in dotted-decimal format, e.g., 192.168.1.10. It consists of:
+
+Network ID: Identifies the specific network.
+Host ID: Identifies a device (or host) within that network.
+The netmask specifies how much of the IP address belongs to the network and how much is reserved for hosts.
+
+2. How a Netmask Works
+A netmask is also written in dotted-decimal format, e.g., 255.255.255.0. In binary, it looks like this:
+
+255.255.255.0 = 11111111.11111111.11111111.00000000
+The 1s represent the network part.
+The 0s represent the host part.
+
+For the IP 192.168.1.10 with the netmask 255.255.255.0, the network portion is the first three octets (192.168.1), and the host portion is the last octet (.10).
+
+3. Subnetting with Netmask
+A netmask enables subnetting, dividing a large network into smaller sub-networks. For example:
+
+Netmask: 255.255.255.0 (or /24):
+Network: 192.168.1.0
+Hosts: 192.168.1.1 to 192.168.1.254 (254 usable addresses)
+Netmask: 255.255.255.128 (or /25):
+Divides the network into two subnets.
+First subnet: 192.168.1.0 to 192.168.1.127
+Second subnet: 192.168.1.128 to 192.168.1.255
+4. Common Netmask Formats
+Netmasks are often described using CIDR (Classless Inter-Domain Routing) notation, where /n represents the number of bits set to 1 in the netmask:
+
+/8: 255.0.0.0 (Class A)
+/16: 255.255.0.0 (Class B)
+/24: 255.255.255.0 (Class C)
+5. Why Netmask is Important
+Routing: Helps routers determine if an IP address belongs to the same network or a different one.
+Security: Restricts the size of a network to limit access.
+Efficient Addressing: Conserves IP addresses by using subnetting.
+6. Example
+For the IP address 10.0.0.1 with the netmask 255.255.255.0:
+
+Network: 10.0.0.0
+Hosts: 10.0.0.1 to 10.0.0.254
+Broadcast: 10.0.0.255 (used to communicate with all hosts in the network)
+In short, a netmask ensures that devices on the same network can communicate efficiently while also supporting routing to other networks.
